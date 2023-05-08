@@ -46,11 +46,28 @@ APIs
     - Loosely typed 
 
 Implicit values available in a function
-    - this
+    - this (Invocation Context)
+        
     - arguments
-        * array like object with all the argument values passed to the function
+        * array LIKE object with all the argument values passed to the function
+        - arguments.length
+        - arguments[0]
 
+In JS,
+    IT DOESNOT matter WHERE a function is OR who OWNS the function
+        what matters is HOW the function is INVOKED
+    There are 6 different ways of invoking a function in JS
 
+When a function is invoked
+    As a method of an object (obj)
+        this => obj
+    
+    As a function
+        this => global scope (window in the browser)
+
+    Using the 'call' method of the function
+
+    Using the 'apply' method of the function
 
 ES5
 
