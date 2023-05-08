@@ -93,3 +93,9 @@ add([10,20],[30,[40,"50"]]) //=> 150
 add(function(){return 10;}, function(){return 20}) //=> 30
 add(function(){ return [10,20];}, function() { return[30,[40,"50"]]; }) //=> 150
 add([function(){ return [10,20];}, function() { return[30,[40,"50"]]; }]) //=> 150
+
+
+Closures
+    Private state
+    
+Async Programming
