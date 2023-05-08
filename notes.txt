@@ -1,0 +1,30 @@
+Magesh Kuppan
+
+Schedule:
+    Session-01  : 90 mins
+    Tea Break   : 15 mins
+    Session-02  : 90 mins
+    Tea Break   : 15 mins
+    Session-03  ~
+
+Methodology:
+    * No powerpoints
+    * Lots of hand-on
+    * Github - https://github.com/tkmagesh/Walmart-ReactNative-May-2023
+
+Agenda:
+    Day-01 : JS & ES6
+    Day-02 & 03 : React & Redux
+    Day-04 & 05 : React Native
+
+
+var emp = {
+    name : 'Magesh'
+}
+
+function whoAmI(){
+    console.log('I am ', this.name)
+}
+
+//Execute the whoAmI function in such a way that it prints "I am Magesh"
+    Note: DO NOT modify either the object or the function
