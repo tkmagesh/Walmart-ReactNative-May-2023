@@ -1,0 +1,78 @@
+Data Types
+    - string
+    - number
+    - boolean
+    - undefined
+    - object (dictionary)
+    - function
+
+Constructs
+    - var
+    - if else
+    - switch case
+    - while
+    - for
+    - for in
+    - throw 
+    - try catch finally
+    - function
+
+APIs
+    - Array
+    - Math
+    - Error
+    - RegEx
+    - Date
+    - Timer
+        * setTimeout
+        * clearTimeout
+        * setInterval
+        * clearInterval
+
+- Categories
+    - Line Oriented
+    - Procedural (C & COBOL)
+    - Object Oriented (C++, Java)
+    - Object Based (Visual Basic) (JS)
+    - Functional Languages (Haskell, F#, Scala) (JS)
+        Functions are data (objects)
+            * functions can be created like objects
+            * functions can have attributes (state) like objects
+            * functions can have methods (behavior) like objects
+            * functions can be passed as arguments to other functions like objects (HOF)
+            * functions can be returned as return values from other functions like objects (HOF)
+
+    - Dynamic
+    - Loosely typed 
+
+Implicit values available in a function
+    - this
+    - arguments
+        * array like object with all the argument values passed to the function
+
+
+
+ES5
+
+
+ES6 & above
+    - BigInt
+    - Symbol
+
+$(domNode)
+$([domNode1, domNode2])
+$(string)
+$(function(){})
+
+add(10,20)  //=> 30
+add(10, "20") //=> 30
+add(10, "abc") //=> 10
+add(10) //=> 10
+add() //=> 0
+add(10,20,30,40,50) //=> 150
+add([10,20],[30,40,50]) //=> 150
+add([10,20],[30,40,"50"]) //=> 150
+add([10,20],[30,[40,"50"]]) //=> 150
+add(function(){return 10;}, function(){return 20}) //=> 30
+add(function(){ return [10,20];}, function() { return[30,[40,"50"]]; }) //=> 150
+add([function(){ return [10,20];}, function() { return[30,[40,"50"]]; }]) //=> 150

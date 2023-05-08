@@ -4,8 +4,8 @@ Schedule:
     Session-01  : 90 mins
     Tea Break   : 15 mins
     Session-02  : 90 mins
-    Tea Break   : 15 mins
-    Session-03  ~
+    Tea Break   : 30 mins
+    Session-03  : ~
 
 Methodology:
     * No powerpoints
