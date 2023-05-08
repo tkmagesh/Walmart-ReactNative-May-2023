@@ -12,7 +12,7 @@
                 counter++
                 var divResult = document.getElementById('divResult')
                 divResult.innerText = counter;
-            }
+            }           
             function onDocumentLoad(){
                 var btnTrack = document.getElementById('btnTrack')
                 btnTrack.addEventListener('click', onBtnTrackClick)
@@ -27,5 +27,6 @@
     <hr>
     <button id="btnTrack">Track</button>
     <div id="divResult">0</div>
+    <button id="btnDetach">Detach Event Handler</button>
 </body>
 </html>
