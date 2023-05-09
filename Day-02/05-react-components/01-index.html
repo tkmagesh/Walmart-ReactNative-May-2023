@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- 
+        html
+            open tags without close tags are valid
+            "for" attribute is valid
+            "class" attribute is valid
+
+        jsx
+            every open tag must have the corresponding close tag
+            use "htmlFor" instead of "for"
+            use "className" instead of "class"
+
+     -->
+    <script type="text/babel">
+        function Greeter(){
+
+            //state
+            let [msg, setMsg] = React.useState('[Default greet message]')
+            let [userName, setUserName] = React.useState('');
+
+            //behavior
+            const onBtnGreetClick = () => {
+                const msg = `Hi ${userName}, Have a nice day!`
+                setMsg(msg);
+            }
+
+            //presentation
+            return (
+                <div>
+                    <h3>Greeter</h3>
+                    <hr/>
+                    <label htmlFor="">Name :</label>
+                    <input type="text" onInput={ evt => setUserName(evt.target.value) }/>
+                    <button onClick={onBtnGreetClick}>Greet</button>
+                    <div>{msg}</div>
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        // root.render(React.createElement(Greeter))
+        root.render(<Greeter/>)
+    </script>
+  </head>
+  <body>
+    
+    <div id="root"></div>
+    
+  </body>
+</html>
