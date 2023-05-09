@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script>
+        let root;
+        let counter = 0;
+        function onBtnRenderClick(){
+            counter++
+
+            let appEl = React.createElement('div', null, 
+                React.createElement('h2', null, 'React Intro - ' + counter),
+                React.createElement('hr'),
+                React.createElement('div', null, 
+                    React.createElement('label', null, 'Counter : '),
+                    React.createElement('span', null, counter)
+                ),
+                React.createElement('div', null, 
+                    React.createElement('h3', null, 'Introduction'),
+                    React.createElement('p', null, 'Enim ea exercitation ad est anim occaecat occaecat. Sit eu minim elit in id ex minim ad ullamco nulla enim in. Quis nisi laboris consectetur enim anim. Minim esse sint eu laboris sint. Do sunt magna fugiat dolore. Proident velit Lorem laboris dolore labore laboris deserunt ex reprehenderit culpa consequat. Proident ad deserunt aute est aute commodo excepteur tempor non amet nostrud duis.'),
+                    React.createElement('p', null, 'Et dolore officia adipisicing nisi. Irure ullamco deserunt sunt fugiat velit est laborum consectetur occaecat. Esse sit dolor eiusmod incididunt proident. Quis nisi aliqua magna commodo. Laborum aliqua duis proident cillum laboris. Exercitation commodo nisi sint adipisicing irure aliqua irure amet velit aliqua laborum.'),
+                    React.createElement('p', null, 'Et tempor id reprehenderit quis voluptate dolore commodo nisi aliquip do. Culpa ullamco dolor excepteur excepteur ullamco commodo labore adipisicing minim ipsum proident eu nostrud non. Anim enim elit ad exercitation adipisicing commodo ullamco adipisicing non esse pariatur exercitation. Aute officia quis fugiat ullamco nostrud minim labore consequat non ea fugiat. Dolore do irure deserunt pariatur et aliquip. Ad elit quis ullamco cupidatat eiusmod aliqua. Labore irure laborum enim eu et velit exercitation ut.'),
+                ),
+                React.createElement('div', null,
+                    React.createElement('h3', null, 'Advantages'),
+                    React.createElement('ul', null, 
+                        React.createElement('li', null, 'Efficient Rendering'),
+                        React.createElement('li', null, 'Declarative programming')
+                    )
+                )
+            )
+            root.render(appEl)
+
+            
+        }
+        function onDocumentLoad(){
+            let btnRender = document.getElementById('btnRender');
+            btnRender.addEventListener('click', onBtnRenderClick)
+
+            root = ReactDOM.createRoot(document.getElementById('root'))
+        }
+        window.addEventListener('load', onDocumentLoad)
+    </script>
+  </head>
+  <body>
+    <button id="btnRender">Render</button>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+      /* 
+      function MyApp() {
+        return <h1>Hello, world!</h1>;
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />); */
+
+    </script>
+    
+  </body>
+</html>

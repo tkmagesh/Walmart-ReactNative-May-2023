@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        let root;
+        let counter = 0;
+        function onBtnRenderClick(){
+            counter++
+
+            let appEl = (
+                <div>
+                    <h3>React Intro</h3>
+                    <hr/>
+                    <div>
+                        <label>Counter : </label>
+                        <span>{counter}</span>
+                    </div>
+                    <div>
+                        <h3>Introduction</h3>
+                        <p>Aliqua culpa qui qui pariatur. Elit excepteur amet do ut Lorem dolore cillum laborum minim mollit ad mollit anim. Elit velit ipsum est et irure laboris anim exercitation pariatur excepteur ullamco sunt aliquip nisi.</p>
+                        <p>Labore est tempor sunt laboris aliqua dolore minim enim occaecat fugiat. In magna minim cillum eu fugiat dolor id ullamco mollit ullamco. Nostrud exercitation cillum excepteur voluptate laborum exercitation culpa aute esse ad ullamco et ut.</p>
+                        <p>Adipisicing ea fugiat deserunt tempor voluptate ad anim adipisicing velit laborum laboris veniam. Pariatur irure qui exercitation elit in elit est consequat commodo. Nulla quis quis aliqua cillum dolore amet fugiat exercitation do eiusmod id magna.</p>
+                    </div>
+                    <div>
+                        <h3>Advantages</h3>
+                        <ul>
+                            <li>Efficient</li>
+                            <li>Declarative</li>
+                        </ul>
+                    </div>
+                </div>
+            );
+
+            root.render(appEl)
+
+            
+        }
+        function onDocumentLoad(){
+            let btnRender = document.getElementById('btnRender');
+            btnRender.addEventListener('click', onBtnRenderClick)
+
+            root = ReactDOM.createRoot(document.getElementById('root'))
+        }
+        window.addEventListener('load', onDocumentLoad)
+    </script>
+  </head>
+  <body>
+    <button id="btnRender">Render</button>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+      /* 
+      function MyApp() {
+        return <h1>Hello, world!</h1>;
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />); */
+
+    </script>
+    
+  </body>
+</html>
