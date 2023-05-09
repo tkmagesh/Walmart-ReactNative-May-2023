@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        function Products(){
+            const [products, setProducts] = React.useState([]);
+            const onNewProductCreated = newProductName => setProducts([...products, newProductName])
+            return (
+                <div>
+                    <h1>Products</h1>
+                    <hr/>
+                    <ProductsStats data={products.length}/>
+                    <NewProduct onCreated={onNewProductCreated}/>
+                    <ProductsList list={products}/>
+                </div>
+            )
+        }
+
+        function NewProduct({onCreated}){
+            const [newProductName, setNewProductName] = React.useState('');
+            return (
+                <div>
+                    <label htmlFor="">Name :</label>
+                    <input type="text" onInput={evt => setNewProductName(evt.target.value)} />
+                    <button onClick={() => onCreated(newProductName)}>Add New</button>
+                </div>
+            )
+        }
+
+        function ProductsStats({data}){
+            return (
+                <div>
+                    <span>Count : </span>
+                    <span>{data}</span>
+                </div>
+            )
+        }
+
+        function ProductsList({list}){
+            const productItems = list.map((product, idx) => (<li key={idx}>{product}</li>))
+            return (
+                <ul>
+                    {productItems}
+                </ul>
+            )
+        }
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(<Products/>)
+    </script>
+</head>
+<body>
+    <div id="root">
+
+    </div>
+</body>
+</html>
