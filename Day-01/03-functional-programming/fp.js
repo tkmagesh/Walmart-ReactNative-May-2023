@@ -68,3 +68,35 @@ function getDescComparer(comparer){
         return comparer(p1, p2) * -1
     }
 }
+
+var costlyProductPredicate = function (product) {
+    return product.cost > 60;
+};
+
+var costlyProducts = products.filter(costlyProductPredicate)
+
+/* 
+function affordableProductPredicate(product){
+    return !costlyProductPredicate(product)
+} 
+*/
+
+function negate(predicate) {
+    return function(){
+        return !predicate.apply(this, arguments)
+    }
+}
+
+var affordableProductPredicate = negate(costlyProductPredicate)
+var affordableProducts = products.filter(affordableProductPredicate)
+
+console.table(costlyProducts)
+console.table(affordableProducts)
+
+// Array Methods
+/* 
+filter()
+map()
+reduce()
+forEach() 
+*/

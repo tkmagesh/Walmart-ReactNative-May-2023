@@ -59,17 +59,21 @@ In JS,
     There are 6 different ways of invoking a function in JS
 
 When a function is invoked
-    As a method of an object (obj)
+    1. As a method of an object (obj)
         this => obj
     
-    As a function
+    2. As a function
         this => global scope (window in the browser)
 
-    Using the 'call' method of the function
+    3. Using the 'call' method of the function
 
-    Using the 'apply' method of the function
+    4. Using the 'apply' method of the function
 
-    As an "Immediately Invoked Function Expression"
+    5. As an "Immediately Invoked Function Expression"
+
+    6. Using the "new" keyword (constructor functions)
+        this => new object
+        this => returned by default
 
     
 ES5
