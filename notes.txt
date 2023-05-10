@@ -28,3 +28,17 @@ function whoAmI(){
 
 //Execute the whoAmI function in such a way that it prints "I am Magesh"
     Note: DO NOT modify either the object or the function
+
+
+State
+    Application State
+        Any data that supports the core domain of the application
+        It is HIGHLY LIKELY that this data is needed through out the application
+        Changes to this data might have to be recognized and acted up through out the application
+        DO NOT keep this state in the component
+
+    UI State
+        Any data that supports the presentational needs of the application
+        It is HIGHLY UNLIKELY this data is needed in other parts of the application
+        Changes to this data might not need be recognized by other parts of the application
+        Feel free to keep this state in the component

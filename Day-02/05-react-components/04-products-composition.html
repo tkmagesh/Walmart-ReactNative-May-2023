@@ -46,7 +46,12 @@
         }
 
         function ProductsList({list}){
-            const productItems = list.map((product, idx) => (<li key={idx}>{product}</li>))
+            const productItems = list.map((product, idx) => (
+                <li key={idx}>
+                    <span>{product}</span>
+                    <button>Remove</button>
+                </li>
+            ))
             return (
                 <ul>
                     {productItems}
