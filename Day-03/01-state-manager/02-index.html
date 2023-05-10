@@ -12,10 +12,13 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script src="state-manager.js"></script>
-    <script type="text/babel">
 
-       
-        
+    <!-- 
+        01. initial implementation
+        02. remove the direct dependency on the store in the component
+
+     -->
+    <script type="text/babel">
         function spinnerReducer(currentState = 100, action) {
             if (action.type === 'INCREMENT') return currentState + 1;
             if (action.type === 'DECREMENT') return currentState - 1;
@@ -23,22 +26,24 @@
         }
         
         
-        function Spinner({store}){
+        function Spinner({value, dispatch}){
+            
             let increment_action = { type: 'INCREMENT' },
                 decrement_action = { type: 'DECREMENT' };
 
             const onBtnIncrementClick = () => {
-                store.dispatch(increment_action)
+                dispatch(increment_action) 
+                
             };
             const onBtnDecrementClick = () => {
-                store.dispatch(decrement_action)
+                dispatch(decrement_action)
             }
-            const spinnerValue = store.getState()
+
             return (
                 <div>
                     <h3>Spinner</h3>
                     <button onClick={onBtnDecrementClick}>Decrement</button>
-                    <span>[ {spinnerValue} ]</span>
+                    <span>[ {value} ]</span>
                     <button onClick={onBtnIncrementClick}>Increment</button>
                 </div>
             )
@@ -47,11 +52,12 @@
         const store = StateManager.createStore(spinnerReducer)
         const root = ReactDOM.createRoot(document.getElementById('root'))
         function renderApp(){
-            root.render(<Spinner store={store}/>)
+            const value = store.getState()
+            root.render(<Spinner value={value} dispatch={store.dispatch}/>)
         }
         renderApp()
         store.subscribe(renderApp);
-        
+
     </script>
 </head>
 <body>

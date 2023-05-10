@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Manager</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="state-manager.js"></script>
+
+    <!-- 
+        01. initial implementation
+
+     -->
+    <script type="text/babel">
+
+       
+        
+        function spinnerReducer(currentState = 100, action) {
+            if (action.type === 'INCREMENT') return currentState + 1;
+            if (action.type === 'DECREMENT') return currentState - 1;
+            return currentState;
+        }
+        
+        
+        function Spinner({store}){
+            
+            let increment_action = { type: 'INCREMENT' },
+                decrement_action = { type: 'DECREMENT' };
+
+            const onBtnIncrementClick = () => {
+                store.dispatch(increment_action) 
+                
+            };
+            const onBtnDecrementClick = () => {
+                store.dispatch(decrement_action)
+            }
+            
+            const value = store.getState()
+
+            return (
+                <div>
+                    <h3>Spinner</h3>
+                    <button onClick={onBtnDecrementClick}>Decrement</button>
+                    <span>[ {value} ]</span>
+                    <button onClick={onBtnIncrementClick}>Increment</button>
+                </div>
+            )
+        }
+
+        const store = StateManager.createStore(spinnerReducer)
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        function renderApp(){
+            root.render(<Spinner store={store}/>)
+        }
+        renderApp()
+        store.subscribe(renderApp);
+
+    </script>
+</head>
+<body>
+    <h1>State Manager</h1>
+    <div id="root"></div>
+</body>
+</html>
