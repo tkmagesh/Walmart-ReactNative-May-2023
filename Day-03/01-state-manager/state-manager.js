@@ -37,8 +37,20 @@ const StateManager = (() => {
         return store;
     }
 
+    function bindActionCreators(actionCreators, dispatch) {
+        let actionDispatchers = {}
+        for (let methodName in actionCreators) {
+            actionDispatchers[methodName] = function (...args) {
+                const action = actionCreators[methodName](...args)
+                dispatch(action)
+            }
+        }
+        return actionDispatchers;
+    }
+
     return {
-        createStore
+        createStore,
+        bindActionCreators
     };
 
 })()
