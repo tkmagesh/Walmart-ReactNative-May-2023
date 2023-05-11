@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        
+        const TimerContainer = () => {
+            const [showTimer, setShowTimer] = React.useState(false)
+            return (
+                <div>  
+                    Show Timer ? : <input type="checkbox" onClick={ evt => setShowTimer(evt.target.checked)} />
+                    {showTimer && <Timer/>}
+                </div>
+            )
+        }
+        const Timer = () => {
+            const [currentTime, setCurrentTime] = React.useState(Date())
+            React.useEffect(() => {
+                // executed when the component is initialized & updated (conditional)
+                
+                const timerId = setInterval(() => {
+                    setCurrentTime(Date())
+                }, 1000);
+                console.log(`started timer. timerId = ${timerId}`)
+                return () => {
+                    // executed when the component is unloaded
+                    console.log('clearing the timer')
+                    clearInterval(timerId)
+                }
+            }, [/* list the data which when changed we want the component to be rerendered */])
+            
+           
+            return (
+                <div>{currentTime}</div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'))
+        root.render(
+            <div>
+               <TimerContainer/>
+            </div>
+        )
+    </script>
+</head>
+<body>
+    <div id="root">
+        
+    </div>
+</body>
+</html>
