@@ -3,10 +3,13 @@ import Greeter from './components/greeter';
 import Timer from './components/timer';
 import BoxModelDemo from './components/flexbox/BoxModelDemo2';
 import BoxModelDemo1 from './components/flexbox/BoxModelDemo1';
+import ScrollViewComponent from './components/scrollViewComponent';
+import FlatListComponent from './components/flatListComponent';
 
 const App = () => {
   return (
-   <Greeter/>
+
+   <FlatListComponent/>
   )
 }
 
