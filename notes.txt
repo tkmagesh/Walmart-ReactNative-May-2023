@@ -64,15 +64,15 @@ class MyComponent extends React.Component {
     }
 }
 
-function MyComponent(){
-    let x = 100
+function MyComponent({value}){
+    const [value, setValue] = React.useState(100)
 
     return <div onClick={() => x += 100}>{x}</div>
 }
 
 
 <App>
-    <MyComponent/>
-    <MyComponent/>
+    <MyComponent value="10"/>
+    <MyComponent value="20"/>
 </App>
 
