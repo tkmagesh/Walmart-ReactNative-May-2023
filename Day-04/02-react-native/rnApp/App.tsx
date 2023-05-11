@@ -1,14 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
 import Greeter from './components/greeter';
 import Timer from './components/timer';
+import BoxModelDemo from './components/flexbox/BoxModelDemo2';
+import BoxModelDemo1 from './components/flexbox/BoxModelDemo1';
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>React Native App!</Text>
-      <Greeter/>
-      {/* <Timer/> */}
-    </View>
+   <Greeter/>
   )
 }
 
