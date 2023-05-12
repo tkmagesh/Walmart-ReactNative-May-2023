@@ -1,0 +1,6 @@
+To run the weather app
+    run the server
+        cd weatherServer
+            npx json-server db.json -d 4000
+
+            

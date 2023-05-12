@@ -65,11 +65,12 @@ const App = () => {
     } = appState;
   
     return (
+    
       <KeyboardAvoidingView
         style={styles.container}
         behavior="height"
-      >
-        <StatusBar barStyle="light-content" />
+      > 
+        <StatusBar barStyle="light-content" hidden={true} />
         <ImageBackground
           source={getImageForWeather(weather)}
           style={styles.imageContainer}
@@ -120,8 +121,14 @@ const App = () => {
           </View>
         </ImageBackground>
       </KeyboardAvoidingView>
+     
     );
   }
+
+{/* 
+    
+     
+  */}
 
 const styles = StyleSheet.create({
   container: {
