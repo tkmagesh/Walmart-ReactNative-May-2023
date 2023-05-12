@@ -32,16 +32,48 @@
             return currentState;
         }
         
+        
         let spinnerActionCreators = {
             increment(delta){
-                const action =  { type: 'INCREMENT', payload : delta };
-                return action;
+                return function(dispatch){
+                    setTimeout(() => {
+                        const action = { type: 'INCREMENT', payload: delta };    
+                        dispatch(action);
+                    }, 2000);
+                }
             },
             decrement(delta){
-                const action = { type: 'DECREMENT', payload :delta };
-                return action
+                return function (dispatch) {
+                    setTimeout(() => {
+                        const action = { type: 'DECREMENT', payload: delta };
+                        dispatch(action);
+                    }, 2000);
+                }
             }
-        }
+        } 
+       
+
+        /* 
+        let spinnerActionCreators = {
+            increment(delta) {
+                return new Promise((resolveFn, rejectFn) => {
+                    setTimeout(() => {
+                        const action = { type: 'INCREMENT', payload: delta };
+                        resolveFn(action)
+                    }, 2000);
+                });
+            },
+            decrement(delta) {
+                return new Promise((resolveFn, rejectFn) => {
+                    setTimeout(() => {
+                        const action = { type: 'DECREMENT', payload: delta };
+                        resolveFn(action);
+                    }, 2000);
+                })
+            }
+        } */
+            
+        
 
         function Spinner({value, increment, decrement}){
             const [delta, setDelta] = React.useState(1)
@@ -58,7 +90,51 @@
             )
         }
 
-        const store = Redux.createStore(spinnerReducer)
+        function logMiddleware(store){
+            return function(next){
+                return function(action){ //
+                    console.group(action.type)
+                    console.log('Before', store.getState())
+                    console.log(action)
+                    next(action);
+                    console.log('After', store.getState())
+                    console.groupEnd()
+                }
+            }
+        }
+
+        function asyncMiddleware(store){
+            return function(next){
+                return function(action){
+                    if (typeof action === 'function'){
+                        console.log('processed by the asyncMiddleware')
+                        return action(store.dispatch)
+                    } else {
+                        return next(action)
+                    }
+                }
+            }
+        }
+
+        //To be fixed
+        function promiseMiddleware(store){
+            return function(next){
+                return function(action){
+                    if (action instanceof Promise){
+                        console.log('processed by promiseMiddleware')
+                        action.then(actionObj => {
+                            console.log('action -> ', actionObj);
+                            store.dispatch(action)
+                        })
+                    } else {
+                        return next(action)
+                    }
+                }
+            }
+        }
+
+
+        const store = Redux.createStore(spinnerReducer, Redux.applyMiddleware(logMiddleware, asyncMiddleware, promiseMiddleware))
         const root = ReactDOM.createRoot(document.getElementById('root'))
 
         const spinnerActionDispatchers = Redux.bindActionCreators(spinnerActionCreators, store.dispatch)
