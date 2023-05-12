@@ -76,3 +76,11 @@ function MyComponent({value}){
     <MyComponent value="20"/>
 </App>
 
+Assignment
+Rewrite the ContactList Application 
+    Use bare react-Native
+    Use the current version of react navigation
+    Use functional components
+
+Me
+    Redux-Toolkit
