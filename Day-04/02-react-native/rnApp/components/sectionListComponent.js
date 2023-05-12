@@ -5,6 +5,7 @@ const sections = [
     {
         id: 0,
         title: 'Basic Components',
+        active : true,
         data: [
             { id: 0, text: 'View' },
             { id: 1, text: 'Text' },
@@ -14,6 +15,7 @@ const sections = [
     {
         id: 1,
         title: 'List Components',
+        active : false,
         data: [
             { id: 3, text: 'ScrollView' },
             { id: 4, text: 'ListView' },

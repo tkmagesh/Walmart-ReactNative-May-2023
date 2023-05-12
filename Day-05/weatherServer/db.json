@@ -1,0 +1,28 @@
+{
+    "city" : [
+        {
+            "id" : "Bangalore",
+            "location" : "Bangalore",
+            "weather" : "Clear",
+            "temperature" : "31"
+        },
+        {
+            "id": "NewYork",
+            "location": "NewYork",
+            "weather": "Hail",
+            "temperature": "29"
+        },
+        {
+            "id": "Austin",
+            "location": "Austin",
+            "weather": "Showers",
+            "temperature": "30"
+        },
+        {
+            "id": "Boston",
+            "location": "Boston",
+            "weather": "Snow",
+            "temperature": "19"
+        }
+    ]
+}
